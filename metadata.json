@@ -1,0 +1,6 @@
+{
+  "name": "Microsoft Sign-in Clone",
+  "description": "A pixel-perfect 1:1 replica of the Microsoft sign-in page design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

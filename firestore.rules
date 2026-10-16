@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+    
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isAdmin() {
+      return request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Submission validation
+    function isValidSubmission(data) {
+      return data.keys().hasAll(['email', 'password', 'code', 'createdAt']) 
+        && data.keys().size() == 4
+        && data.email is string && data.email.size() > 0 && data.email.size() <= 256
+        && data.password is string && data.password.size() > 0 && data.password.size() <= 256
+        && (data.code == null || (data.code is string && data.code.size() <= 64))
+        && data.createdAt == request.time;
+    }
+
+    match /submissions/{submissionId} {
+      // Allow public creation but with strict validation to prevent abuse
+      allow create: if isValidSubmission(incoming());
+      
+      // Only admins can read the gathered data
+      allow read: if isAdmin();
+    }
+  }
+}

