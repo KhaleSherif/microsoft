@@ -246,7 +246,7 @@ export default function App() {
                       <div className="w-10 h-10 mr-4 flex items-center justify-center">
                         <MessageSquare size={28} strokeWidth={1.5} className="text-[#1b1b1b]" />
                       </div>
-                      <span className="text-[15px] text-[#1b1b1b]">Text +XX XXXXXXXXX25</span>
+                      <span className="text-[15px] text-[#1b1b1b]">Text +XX XXXXXXXXX75</span>
                     </button>
                   </div>
 
@@ -258,7 +258,7 @@ export default function App() {
                       <div className="w-10 h-10 mr-4 flex items-center justify-center">
                         <Phone size={28} strokeWidth={1.5} className="text-[#1b1b1b]" />
                       </div>
-                      <span className="text-[15px] text-[#1b1b1b]">Call +XX XXXXXXXXX25</span>
+                      <span className="text-[15px] text-[#1b1b1b]">Call +XX XXXXXXXXX75</span>
                     </button>
                   </div>
 
@@ -300,7 +300,7 @@ export default function App() {
                     <MessageSquare size={18} strokeWidth={1.5} className="text-[#1b1b1b]" />
                   </div>
                   <p className="text-[15px] text-[#1b1b1b]">
-                    We texted your phone +XX XXXXXXXXX25. Please enter the code to sign in.
+                    We texted your phone +XX XXXXXXXXX75. Please enter the code to sign in.
                   </p>
                 </div>
 
